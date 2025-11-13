@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿QUÉ TAN BUÑUELO ERES? | Seguridad Vial</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+
+    <div id="contenedor-juego">
+
+        <div id="pantalla-inicio">
+            <h1>Bienvenid@ al Desafío de Seguridad Vial 🚦</h1>
+            <p>A continuación realizaremos 10 preguntas en las cuales verificaremos tus conocimientos al momento de estar en la carretera...</p>
+            <button id="boton-iniciar-juego">INICIAR JUEGO</button>
+        </div>
+        <div id="contenido-principal" class="oculto"> 
+            
+            <div id="puntuacion-display">
+                <h2>Puntos: <span id="puntuacion-actual">0</span></h2>
+                <p id="contador-escenario">Escenario 1 de 10</p>
+            </div>
+
+            <img id="imagen-escena" src="" alt="Escena de la historia"> 
+            <h1 id="titulo-escena"></h1> 
+            <p id="texto-narrativa"></p>
+            
+            <div id="opciones-contenedor">
+            </div>
+
+            <div id="feedback-resultado" class="oculto">
+                <p id="mensaje-resultado"></p>
+                <button id="boton-siguiente" class="oculto">Siguiente Escenario</button>
+            </div>
+
+        </div> 
+        <div id="resultados-proyecto" class="oculto">
+            <h2>Resultados Consolidados del Grupo (¡Para tu Proyecto!)</h2>
+            <p id="resumen-final"></p>
+            <canvas id="graficaRespuestas" width="400" height="200"></canvas>
+            <button id="boton-reiniciar">Reiniciar Juego</button>
+        </div>
+
+    </div>
+
+    <script src="juego.js"></script>
+</body>
+</html>

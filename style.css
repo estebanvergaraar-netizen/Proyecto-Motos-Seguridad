@@ -1,0 +1,314 @@
+/*
+ * Archivo: style.css
+ * Ubicación: style.css
+ * Estilos base del juego y la pantalla de inicio animada.
+ */
+
+/* ================================================= */
+/* 1. ESTILOS BASE Y PANTALLA DE INICIO DINÁMICA */
+/* ================================================= */
+
+/* Define la animación del degradado en el fondo del cuerpo */
+body {
+    /* Define los colores del degradado y ajusta el tamaño para que la animación se vea */
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%; /* Permite que el degradado se mueva */
+    animation: gradient-animation 15s ease infinite; /* Duración y repetición */
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    color: #ecf0f1; /* Color de texto por defecto */
+}
+
+/* Keyframes para la animación del fondo */
+@keyframes gradient-animation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Contenedor principal del juego (visible al inicio o después del clic) */
+#contenedor-juego {
+    width: 90%;
+    max-width: 900px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
+    border-radius: 10px;
+}
+
+/* Clase para ocultar elementos */
+.oculto {
+    display: none !important;
+}
+
+/* Estilo y Centrado de la Caja de Inicio */
+#pantalla-inicio {
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo oscuro con transparencia */
+    padding: 60px 80px;
+    border-radius: 20px;
+    text-align: center;
+    color: white; 
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    max-width: 80%;
+    transition: transform 0.3s ease;
+}
+
+#pantalla-inicio:hover {
+    transform: scale(1.02); /* Pequeño efecto al pasar el ratón por la caja */
+}
+
+/* Estilo de Título y Texto de la Portada */
+#pantalla-inicio h1 {
+    font-size: 3em; 
+    margin-bottom: 20px;
+    color: #ffc107; /* Color llamativo */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+#pantalla-inicio p {
+    font-size: 1.5em; 
+    margin-bottom: 40px;
+    line-height: 1.5;
+}
+
+/* Estilo de Botón Llamativo de la Portada */
+#boton-iniciar-juego {
+    padding: 15px 40px;
+    font-size: 1.5em; 
+    font-weight: bold;
+    color: #000;
+    background-color: #2ecc71; /* Verde brillante */
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(46, 204, 113, 0.6);
+}
+
+#boton-iniciar-juego:hover {
+    background-color: #27ae60; 
+    transform: translateY(-3px) scale(1.05); 
+    box-shadow: 0 8px 20px rgba(46, 204, 113, 0.8); 
+}
+
+/* ================================================= */
+/* 2. ESTILOS DEL CONTENIDO PRINCIPAL DEL JUEGO */
+/* ================================================= */
+
+#contenido-principal {
+    background-color: #2c3e50; /* Fondo oscuro sólido */
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+#puntuacion-display {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f39c12; /* Naranja fuerte para destacar */
+    padding: 10px 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    color: #fff;
+    font-weight: bold;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+#puntuacion-actual {
+    font-size: 1.8em;
+}
+
+#contador-escenario {
+    font-size: 1.1em;
+}
+
+/* Animaciones para cambio de puntuación */
+@keyframes animacion-ganar {
+    0% { transform: scale(1); background-color: #f39c12; }
+    50% { transform: scale(1.1); background-color: #27ae60; } /* Verde para acierto */
+    100% { transform: scale(1); background-color: #f39c12; }
+}
+@keyframes animacion-perder {
+    0% { transform: scale(1); background-color: #f39c12; }
+    50% { transform: scale(1.1); background-color: #c0392b; } /* Rojo para error */
+    100% { transform: scale(1); background-color: #f39c12; }
+}
+
+.animacion-ganar {
+    animation: animacion-ganar 0.5s ease-in-out;
+}
+.animacion-perder {
+    animation: animacion-perder 0.5s ease-in-out;
+}
+
+/* Estilos de la imagen del escenario */
+#imagen-escena {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    border-radius: 8px;
+    margin: 20px 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    object-fit: cover; /* Asegura que la imagen se vea bien dentro del contenedor */
+}
+
+#titulo-escena {
+    font-size: 1.8em;
+    color: #3498db; /* Azul */
+    margin-bottom: 10px;
+}
+
+#texto-narrativa {
+    font-size: 1.1em;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+/* Contenedor de Opciones (Botones) */
+#opciones-contenedor {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+#opciones-contenedor button {
+    padding: 15px;
+    font-size: 1.1em;
+    border: 2px solid #3498db;
+    background-color: #34495e; /* Azul oscuro suave */
+    color: #ecf0f1;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+#opciones-contenedor button:hover {
+    background-color: #3498db; /* Azul al pasar el ratón */
+    transform: translateY(-2px);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilos del Feedback (Resultado de la Decisión) */
+#feedback-resultado {
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+#feedback-resultado.acierto {
+    background-color: #27ae60; /* Verde para acierto */
+}
+
+#feedback-resultado.error {
+    background-color: #c0392b; /* Rojo para error */
+}
+
+#mensaje-resultado {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 15px;
+}
+
+#boton-siguiente {
+    padding: 10px 25px;
+    font-size: 1.1em;
+    background-color: #f39c12;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    margin-top: 10px;
+}
+
+#boton-siguiente:hover {
+    background-color: #d68910;
+}
+
+/* ================================================= */
+/* 3. ESTILOS DE RESULTADOS FINALES Y GRÁFICA */
+/* ================================================= */
+
+#resultados-proyecto {
+    background-color: #34495e; /* Fondo de la sección de resultados */
+    padding: 30px;
+    border-radius: 10px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+#resultados-proyecto h2 {
+    color: #e67e22; /* Naranja */
+    margin-bottom: 15px;
+    font-size: 2em;
+}
+
+#resumen-final {
+    font-size: 1.3em;
+    margin-bottom: 30px;
+    font-weight: bold;
+}
+
+#graficaRespuestas {
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+#boton-reiniciar {
+    padding: 15px 40px;
+    font-size: 1.2em;
+    background-color: #c0392b; /* Rojo para el botón de Reiniciar */
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+#boton-reiniciar:hover {
+    background-color: #a93226;
+}
+
+/* ================================================= */
+/* 4. RESPONSIVE (Ajustes para móviles y pantallas pequeñas) */
+/* ================================================= */
+@media (max-width: 768px) {
+    #pantalla-inicio {
+        padding: 30px 40px;
+    }
+    #pantalla-inicio h1 {
+        font-size: 2em;
+    }
+    #pantalla-inicio p {
+        font-size: 1.2em;
+    }
+    #boton-iniciar-juego {
+        font-size: 1.2em;
+        padding: 12px 30px;
+    }
+
+    #puntuacion-display {
+        flex-direction: column;
+    }
+    #puntuacion-display h2, #contador-escenario {
+        margin: 5px 0;
+    }
+
+    #opciones-contenedor button {
+        font-size: 1em;
+        padding: 10px;
+    }
+}
